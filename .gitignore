@@ -1,6 +1,6 @@
 # ignore .vscode direcotry
-.vscode
+.vscode/
 
 # ignore .dist derecotry
-.dist
+.dist/
 
