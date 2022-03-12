@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overflow</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .container {
+        margin: 100px auto;
+        border: 1px solid #333333;
+        width: 200px;
+        height: 100px;
+
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Overflow</h1>
+
+    <div class="container">
+      This box has a height and a width. This means that if there is too much
+      content to be displayed within the assigned height, there will be an
+      overflow situation. If overflow is set to hidden then any overflow will
+      not be visible.
+    </div>
+    <!-- browsers with visible scrollbars will always display them
+         even if there is not enough content to overflow -->
+    <div class="container"></div>
+  </body>
+</html>

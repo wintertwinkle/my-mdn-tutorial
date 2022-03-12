@@ -1,0 +1,10 @@
+/* body {
+  display: flex;
+  margin: 0;
+  background-color: #fff;
+  align-items: center;
+} */
+
+body {
+  box-sizing: border-box;
+}

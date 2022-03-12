@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>↻</div>
+    <script>
+      const spinner = document.querySelector("div")
+      let rotateCount = 0
+      let startTime = null
+      let rAF
+
+      function draw(timestamp) {
+        if (!startTime) {
+          startTime = timestamp
+        }
+        rotateCount = (timestamp - startTime) / 3
+        rotateCount %= 360
+        spinner.style.transform = `rotate(${rotateCount}deg)`
+        // console.log(`rotate${rotateCount}`)
+        rAF = requestAnimationFrame(draw)
+      }
+      draw()
+    </script>
+  </body>
+</html>

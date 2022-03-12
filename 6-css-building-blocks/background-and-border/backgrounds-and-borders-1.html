@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Backgrounds and Borders: Task 1</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      .box {
+        width: 500px;
+        padding: 0.5em;
+        border: 5px solid black;
+        border-radius: 10px;
+        background-image: url(images/balloons.jpg);
+        background-size: cover;
+      }
+      h2 {
+        background: rgba(0, 0, 0, 0);
+        color: #fff;
+      }
+      .test-box {
+        width: 300px;
+        height: 200px;
+        border: 1px solid blue;
+        background-color: gray;
+      }
+      .test-box p {
+        color: blue;
+        border: 1px solid currentColor;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <h2>Backgrounds &amp; Borders</h2>
+    </div>
+    <div class="test-box">
+      <p>This is a paragraph</p>
+    </div>
+  </body>
+</html>

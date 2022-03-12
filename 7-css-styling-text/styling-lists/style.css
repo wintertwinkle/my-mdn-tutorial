@@ -1,0 +1,63 @@
+/* || vertical spacing setting */
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+/* 给所有的列表和段落设置同样的font-size来保持 vertical spacing 的一致性 */
+ul,
+ol,
+dl,
+p {
+  font-size: 1.5rem;
+}
+
+/* 给p和li设置相同的行高来保持 vertical spacing 的一致性 */
+p,
+li,
+dd,
+dt {
+  line-height: 1.5;
+}
+
+dt {
+  font-weight: bold;
+}
+
+/* || List specific styles */
+
+/* bullet style */
+ol {
+  list-style-type: upper-roman;
+}
+
+/* bullet position */
+ol {
+  list-style-position: inside;
+}
+
+/* using a custom bullet image */
+
+/* ul li {
+  however this property is a bit limited in terms
+  of controlling the position, size of the bulltes
+  list-style-image: url(star.svg);
+} */
+
+/* use the background peroperties to simulate the image bullets */
+ul {
+  padding-left: 2rem;
+  list-style-type: none;
+}
+
+ul li {
+  padding-left: 2rem;
+  background-image: url(star.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0.4rem;
+  background-size: 1.6rem 1.6rem;
+}

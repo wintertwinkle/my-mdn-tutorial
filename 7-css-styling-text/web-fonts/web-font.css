@@ -1,0 +1,49 @@
+/* font face */
+@font-face {
+  font-family: "hubballiregular";
+  src: url("fonts/hubballi-regular-webfont.woff2") format("woff2"),
+    url("fonts/hubballi-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "robotoblack";
+  src: url("fonts/roboto-black-webfont.woff2") format("woff2"),
+    url("fonts/roboto-black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General setup */
+
+html {
+  font-size: 10px;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Typography */
+
+h1 {
+  font-family: "robotoblack", serif;
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-family: "robotoblack", serif;
+  font-size: 2.4rem;
+}
+
+p {
+  font-family: "hubballiregular", serif;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  word-spacing: 0.6rem;
+}

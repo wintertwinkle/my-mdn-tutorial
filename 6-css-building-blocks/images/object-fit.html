@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Images and forms 1: covering the box with an image</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      .box {
+        border: 5px solid #000;
+        width: 400px;
+        height: 200px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- In this task, you have an image that 
+         is overflowing the box. We want the image 
+         to scale down to fit inside the box without 
+         any extra white space, but we do not mind 
+         if some part of the image is cropped. 
+    -->
+    <div class="box">
+      <img src="balloons.jpg" alt="balloons" />
+    </div>
+  </body>
+</html>

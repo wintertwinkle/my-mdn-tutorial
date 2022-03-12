@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Media/embedding: Task 2</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      video {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Video embed</h1>
+
+    <video controls width="320" height="240" muted preload="auto">
+      <!-- 浏览器会从上到下查找它支持的格式 -->
+      <!-- 加上type attribute可以让浏览器知道视频格式，
+        从而在不加载视频的情况下跳过它不支持的格式 -->
+      <source src="media/video.webm" type="video/webm" />
+      <source src="media/video.mp4" type="video/mp4" />
+      <track
+        kind="subtitles"
+        src="media/subtitles_en.vtt"
+        srclang="en"
+        label="English"
+      />
+      <p>
+        Your browser doesn't support HTML5 video. Here is a
+        <a href="media/video.webm">link to the video</a> instead.
+      </p>
+    </video>
+  </body>
+</html>

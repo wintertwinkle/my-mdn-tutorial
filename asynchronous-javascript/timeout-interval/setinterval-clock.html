@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simple setInterval clock</title>
+    <style>
+      .clock-box {
+        display: flex;
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        border-radius: 50%;
+      }
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock-box">
+      <p class="clock">0</p>
+      <div class="button-container">
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+        <button class="reset">Reset</button>
+      </div>
+      <p class="elapsed"></p>
+    </div>
+
+    <script>
+      let millisecond = 0
+      const stopwatch = document.querySelector(".clock")
+      const start = document.querySelector(".start")
+      const stop = document.querySelector(".stop")
+      const reset = document.querySelector(".reset")
+      function displayTime() {
+        stopwatch.textContent = millisecond
+        millisecond++
+      }
+
+      let clock = null
+
+      start.addEventListener("click", () => {
+        displayTime()
+        clock = setInterval(displayTime, 1000)
+      })
+
+      stop.addEventListener("click", () => {
+        clearInterval(clock)
+      })
+
+      reset.addEventListener("click", () => {
+        millisecond = 0
+        displayTime()
+        clearInterval(clock)
+      })
+    </script>
+  </body>
+</html>
