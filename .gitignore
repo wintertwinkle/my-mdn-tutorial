@@ -1,1 +1,6 @@
-/.vscode
+# ignore .vscode direcotry
+.vscode
+
+# ignore .dist derecotry
+.dist
+
