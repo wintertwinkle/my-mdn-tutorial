@@ -46,3 +46,41 @@ There are two kinds of checkable item: the check box and the radio button.
 Both use the `checked` attribute to indicate whether the widget is checked by default or not.
 
 ### Check box
+
+A check box is created using the `<input>` element with a `type` attribute set to the value `checkbox`.
+
+```html
+<input type="checkbox" id="questionOne" name="subscribe" value="yes" checked />
+```
+
+### Radio box
+
+A radio button is created using the `<input>` element with its `type` attribute set to the value `radio`:
+
+```html
+<input type="radio" id="soup" name="meal" checked />
+```
+
+## Actual buttons
+
+There are three input types that produce buttons:
+
+- `submit`
+- `reset`
+- `button`
+
+Then we also have the `<button>` element itself.
+
+This can take a `type` attribute of value `submit`, `reset`, or `button` to mimic the behavior of the three `<input>` types mentioned above.
+
+The main difference between the two is that actual `<button>` elements are much easier to style.
+
+### Image button
+
+The **image button** control is rendered exactly like an `<img>` element, except that when the user clicks on it, it behaves like a submit button.
+
+```html
+<input type="image" alt="Click me!" src="my-img.png" width="80" height="30" />
+```
+
+## File Picker

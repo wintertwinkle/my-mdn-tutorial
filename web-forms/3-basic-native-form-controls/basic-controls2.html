@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic controls: Task 2</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <fieldset>
+        <legend>Who is your favorite pony?</legend>
+        <ul>
+          <li>
+            <input
+              id="pinkie"
+              type="radio"
+              value="Pinkie Pie"
+              name="favorite_pony"
+              checked
+            />
+            <label for="pinkie">Pinkie Pie</label>
+          </li>
+          <li>
+            <input
+              id="rainbow"
+              type="radio"
+              value="Rainbow Dash"
+              name="favorite_pony"
+            />
+            <label for="rainbow">Rainbow Dash</label>
+          </li>
+          <li>
+            <input
+              id="twilight"
+              type="radio"
+              value="Twilight Sparkle"
+              name="favorite_pony"
+            />
+            <label for="twilight">Twilight Sparkle</label>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>Hotdog preferences</legend>
+        <ul>
+          <li>
+            <input
+              type="checkbox"
+              value="Vegan"
+              name="hotdog_preferences"
+              id="vegan"
+            />
+            <label for="vegan">Vegan</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              value="Onions"
+              name="hotdog_preferences"
+              id="onions"
+            />
+            <label for="onions">Onions</label>
+          </li>
+        </ul>
+      </fieldset>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
