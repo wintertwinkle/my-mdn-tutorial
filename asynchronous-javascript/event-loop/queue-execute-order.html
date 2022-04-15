@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>关于Task queue, Render queue 和 Microtask queue的执行顺序</h1>
+    <h2>Microtask queue > Render queue > Task queue</h2>
+    <script>
+      // Call stack
+      console.log(`Call stack 1`)
+      // Taks queue
+      setTimeout(() => {
+        console.log(`Task queue`)
+      }, 0)
+      // Render queue
+      requestAnimationFrame(() => console.log(`Render queue1`))
+      requestAnimationFrame(() => console.log(`Render queue2`))
+      requestAnimationFrame(() => console.log(`Render queue3`))
+      // Microtask queue
+      function logPromise(number) {
+        return Promise.resolve(`Microtask queue${number}`)
+      }
+      logPromise(1).then(console.log)
+      logPromise(2).then(console.log)
+      logPromise(3).then(console.log)
+      // Call stack
+      console.log(`Call stack 2`)
+    </script>
+  </body>
+</html>

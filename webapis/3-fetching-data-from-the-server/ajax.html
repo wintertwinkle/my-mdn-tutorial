@@ -62,11 +62,13 @@
       const verseChoose = document.querySelector("select")
       const poemDisplay = document.querySelector("pre")
 
-      verseChoose.onchange = function () {
+      // 绑定事件监听函数
+      verseChoose.addEventListener("change", () => {
         const verse = verseChoose.value
         updateDisplayUseFetch(verse)
-      }
+      })
 
+      // 从服务器请求数据 XHR版本
       function updateDisplayUseXHR(verse) {
         let url = verse.replace(" ", "").toLowerCase() + ".txt"
 
@@ -84,19 +86,37 @@
         request.send()
       }
 
+      // 从服务器请求数据 Fetch版本
       function updateDisplayUseFetch(verse) {
-        let url = verse.replace(" ", "").toLowerCase() + ".txt"
+        verse = verse.replace(" ", "").toLowerCase()
+        const url = `${verse}.txt`
+        // Call `fetch()`, passing in the URL.
         fetch(url)
+          // fetch() returns a promise. When we have received a response from the server,
+          // the promise's `then()` handler is called with the response.
           .then((res) => {
+            // Our handler throws an error if the request did not succeed.
+            if (!res.ok) {
+              throw new Error(`HTTP Error: ${res.status}`)
+            }
+            // Otherwise (if the response succeeded), our handler fetches the response
+            // as text by calling response.text(), and immediately returns the promise
+            // returned by `response.text()`.
             return res.text()
           })
-          .then((value) => {
-            poemDisplay.textContent = value
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+          // When response.text() has succeeded, the `then()` handler is called with
+          // the text, and we copy it into the `poemDisplay` box.
+          .then((text) => (poemDisplay.textContent = text))
+          // Catch any errors that might happen, and display a message
+          // in the `poemDisplay` box.
+          .catch(
+            (error) =>
+              (poemDisplay.textContent = `Could not fetch verse: ${error}`)
+          )
       }
+
+      updateDisplayUseFetch("Verse 1")
+      verseChoose.value = "Verse 1"
     </script>
   </body>
 </html>
