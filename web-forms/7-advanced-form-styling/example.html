@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced form styling</title>
+    <style>
+      input[type="checkbox"] {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      input[type="checkbox"] {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        border: 1px solid gray;
+        /* Adjusts the position of the checkboxes on the text baseline */
+        vertical-align: -2px;
+        /* Set here so that Windows' High-Contrast Mode can override */
+        color: green;
+      }
+
+      input[type="checkbox"]::before {
+        content: "X";
+        position: absolute;
+        font-size: 1.2em;
+        right: 1px;
+        top: -0.3em;
+        visibility: hidden;
+      }
+
+      input[type="checkbox"]:checked::before {
+        /* Use `visibility` instead of `display` to avoid recalculating layout */
+        visibility: visible;
+      }
+
+      input[type="checkbox"]:disabled {
+        border-color: black;
+        background: #ddd;
+        color: gray;
+      }
+    </style>
+    <style>
+      /* range input types styling */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: green;
+        border-radius: 10px;
+        height: 2px;
+        outline: 1px solid transparent;
+        padding: 0;
+      }
+    </style>
+    <style>
+      /* file input types styling */
+      input[type="file"] {
+        height: 0;
+        padding: 0;
+        opacity: 0;
+      }
+      label[for="fileChooser"] {
+        box-shadow: 1px 1px 3px #ccc;
+        background: linear-gradient(to bottom, #eee, #ccc);
+        padding: 5px;
+        border: 1px solid rgb(169, 169, 169);
+        border-radius: 5px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      label[for="fileChooser"]:hover {
+        background: linear-gradient(to bottom, #fff, #ddd);
+      }
+
+      label[for="fileChooser"]:active {
+        box-shadow: inset 1px 1px 3px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Advanced form styling</h1>
+    <h2>Styling checkboxes and radio buttons</h2>
+    <form>
+      <fieldset>
+        <legend>Fruit preferences</legend>
+
+        <p>
+          <label>
+            <input type="checkbox" name="fruit-1" value="cherry" />
+            I like cherry
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" name="fruit-2" value="banana" disabled />
+            I can't like banana
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" name="fruit-3" value="strawberry" />
+            I like strawberry
+          </label>
+        </p>
+      </fieldset>
+    </form>
+    <h2>range input types</h2>
+    <input type="range" name="" id="" min="0" max="100" value="50" />
+    <h2>file input types</h2>
+    <p>
+      <label for="fileChooser" id="filePicker">Choose a file</label>
+      <input type="file" name="" id="fileChooser" />
+    </p>
+  </body>
+</html>

@@ -22,12 +22,61 @@
    - `<input type="search">`
 3. The ugly: 不能完全装饰的表单控件，推荐使用自定义控件(custom form controls)代替
    - `<input type="color">`
-   - Date-related controls such as `<input type="datetime-local">`
+   - 日期时间相关控件如 `<input type="datetime-local">`
    - `<input type="range">`
    - `<input type="file">`
    - Elements involved in creating dropdown widgets, including `<select>`, `<option>`, `<optgroup>` and `<datalist>`.
    - `<progress>` and `<meter>`
 
 ## The good
+
+### Fonts and text
+
+有一些控件是不会继承父元素的 `font-family` 和 `font-size` 的。
+为了保持一致性，可以这样做：
+
+```css
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+```
+
+### Box sizing
+
+所有的表单控件都有默认的尺寸属性 `width`, `height`, `padding`, `margin`, `border`.
+为了保持一致性，可以这样做：
+
+```css
+input,
+textarea,
+select,
+button {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+```
+
+### Legend placement
+
+`<legend>`标签内容一般都在`<fieldset>`的左上角。
+想改变`<legend>`的位置，可以借助定位：
+
+```css
+fieldset {
+  position: relative;
+}
+
+legend {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+```
 
 ## A specific styling example
