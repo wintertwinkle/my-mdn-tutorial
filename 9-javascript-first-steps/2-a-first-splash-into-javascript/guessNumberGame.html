@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess Number game</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .game-container {
+        font-size: 24px;
+        width: 800px;
+        padding: 40px;
+        margin: 30px auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.5);
+      }
+
+      input,
+      button {
+        width: 150px;
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Thinking like a programmer</h1>
+      <p>
+        We have selected a random number between 1 and 100. See if you can guess
+        it in 10 turns or fewer. We'll tell you if your guess was too high or
+        too low.
+      </p>
+      <p>
+        <label for="input">Enter a guess: </label>
+        <input type="number" name="input" id="input" />
+        <button id="submit">Submit</button>
+      </p>
+      <p id="guessed"></p>
+      <p id="message"></p>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let guessed = document.querySelector("#guessed")
+        let message = document.querySelector("#message")
+        // init a random number
+        let targetNumber = Math.floor(Math.random() * 100)
+        console.log(targetNumber)
+
+        // register button click event
+        let input = document.querySelector("#input")
+        let submit = document.querySelector("#submit")
+
+        submit.addEventListener("click", () => {
+          if (input.value === "") {
+            return alert("please input a number")
+          }
+
+          const value = parseInt(input.value)
+
+          const span = document.createElement("span")
+          span.textContent = ` ${input.value} `
+          guessed.appendChild(span)
+          input.value = ""
+
+          if (value < targetNumber) {
+            message.textContent = `low`
+
+            return
+          }
+
+          if (value > targetNumber) {
+            message.textContent = `high`
+            input.value = ""
+            return
+          }
+
+          if (value === targetNumber) {
+            message.textContent = `success!`
+            input.value = ""
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
