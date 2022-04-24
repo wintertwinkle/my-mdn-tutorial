@@ -46,10 +46,10 @@ This basically means loading your web site assets in a sensible order so that th
 
 - 在动画的选择上，能用 CSS 动画就不要用 JS 动画
 - 减少计算量大的 JS 操作，或者用 Web worker 来接管计算量大的 JS 操作，避免 JS 执行栈的堵塞
-- 利用 [throttle debounce](https://css-tricks.com/debouncing-throttling-explained-examples/) 来减少事件的触发频率，避免避免 JS 执行栈的堵塞
+- 利用 [throttle debounce](https://css-tricks.com/debouncing-throttling-explained-examples/) 来减少事件的触发频率，避免 JS 执行栈的堵塞
 - 尽量减少页面的重排和重绘
 
-性能优化推荐书籍：
+JavaScript方面性能优化的推荐书籍：
 
 - High Performance JavaScript by Nicholas C. Zakas
 
