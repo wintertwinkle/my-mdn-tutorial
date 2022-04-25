@@ -2,12 +2,12 @@
 
 这部分内容主要是讲如何用 CSS 装饰那些比较难装饰的表单控件如：
 
-- 单选和多选按钮 Checkboxes and radion buttons
-- 搜索框 `<input type="search">`
-- 下拉列表 `<select>` `<option>` `<optgroup>` `datalist`
-- 颜色选择器 `<input type="color">`
-- 文件选择器 `<input type="file>`
-- 进度条 `<progress>` 和 `<meter>`
+-   单选和多选按钮 Checkboxes and radion buttons
+-   搜索框 `<input type="search">`
+-   下拉列表 `<select>` `<option>` `<optgroup>` `datalist`
+-   颜色选择器 `<input type="color">`
+-   文件选择器 `<input type="file>`
+-   进度条 `<progress>` 和 `<meter>`
 
 ## appearance: controlling OS-level styling
 
@@ -17,14 +17,14 @@
 
 ```css
 input {
-  -webkit-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    appearance: none; // 尚未标准化的时候，浏览器是不认识这个属性的
 }
 ```
 
 这个值可以丢弃表单控件的默认外观，然后就可以自己 DIY 外观啦！
 
-**Note:** 对于带有前缀的属性，最后同时写上带前缀和不带前缀的版本。因为带前缀的版本意味着这个属性是尚未标准化的属性，当称为标准后，浏览器厂商可能会删掉带前缀的属性。
+**Note:** 对于带有前缀的属性，最好同时写上带前缀和不带前缀的版本。因为带前缀的版本意味着这个属性是尚未标准化的属性，当称为标准后，浏览器厂商可能会删掉带前缀的属性。
 
 ### Taming search boxes
 
@@ -52,10 +52,10 @@ input[type="checkbox"] {
 
 ## What can be done about the "ugly" elements?
 
-- 下拉列表 `<select>` `<option>` `<optgroup>` `datalist`
-- 颜色选择器 `<input type="color">`
-- 文件选择器 `<input type="file>`
-- 进度条 `<progress>` 和 `<meter>`
+-   下拉列表 `<select>` `<option>` `<optgroup>` `datalist`
+-   颜色选择器 `<input type="color">`
+-   文件选择器 `<input type="file>`
+-   进度条 `<progress>` 和 `<meter>`
 
 这些表单控件理论上很难完全通过 CSS 来控制其外观。比如它们内部的一些功能部件在理论上来说你是无法用 CSS 修饰的。
 
@@ -71,8 +71,8 @@ input[type="checkbox"] {
 
 ```css
 select {
-  -webkit-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 ```
 
@@ -80,25 +80,25 @@ select {
 
 ```html
 <div class="select-wrapper">
-  <select id="select" name="select">
-    <option>Banana</option>
-    <option>Cherry</option>
-    <option>Lemon</option>
-  </select>
+    <select id="select" name="select">
+        <option>Banana</option>
+        <option>Cherry</option>
+        <option>Lemon</option>
+    </select>
 </div>
 ```
 
 ```css
 .select-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .select-wrapper::after {
-  content: "▼";
-  font-size: 1rem;
-  top: 6px;
-  right: 10px;
-  position: absolute;
+    content: "▼";
+    font-size: 1rem;
+    top: 6px;
+    right: 10px;
+    position: absolute;
 }
 ```
 
@@ -127,28 +127,28 @@ the internal parts of the control (e.g. the popup calendar that you use to pick 
 
 ```html
 <p>
-  <label for="fileChooser" id="filePicker">Choose a file</label>
-  <input type="file" name="" id="fileChooser" />
+    <label for="fileChooser" id="filePicker">Choose a file</label>
+    <input type="file" name="" id="fileChooser" />
 </p>
 ```
 
 ```css
 input[type="file"] {
-  height: 0;
-  padding: 0;
-  opacity: 0;
+    height: 0;
+    padding: 0;
+    opacity: 0;
 }
 #filePicker {
-  box-sizing: border-box;
-  cursor: pointer;
-  background-color: black;
-  color: #fff;
-  width: 100px;
-  height: 50px;
-  padding: 5px;
-  border: 0;
-  border-radius: 10px;
-  margin: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: black;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    border: 0;
+    border-radius: 10px;
+    margin: 0;
 }
 ```
 

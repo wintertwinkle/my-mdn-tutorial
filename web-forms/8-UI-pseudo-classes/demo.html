@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>UI pseudo-classes</title>
+        <style>
+            h1,
+            h2 {
+                text-align: center;
+            }
+            form {
+                width: 500px;
+                margin: 0 auto;
+            }
+            label,
+            input {
+                width: 100%;
+            }
+            input + span {
+                position: relative;
+            }
+            input + span::before {
+                position: absolute;
+                right: -478px;
+                top: -28px;
+            }
+            input:invalid + span::before {
+                content: "✖";
+                color: red;
+            }
+            input:valid + span::before {
+                content: "✓";
+                color: green;
+            }
+            input:required + span::after {
+                font-size: 0.7rem;
+                position: absolute;
+                content: "required";
+                color: white;
+                background-color: black;
+                padding: 5px 10px;
+                top: -55px;
+                left: 395px;
+            }
+
+            input:out-of-range + span::after {
+                color: white;
+                background-color: red;
+                width: 175px;
+                left: 266px;
+                content: "Outside allowable value range";
+            }
+
+            fieldset > div {
+                margin-bottom: 20px;
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+            input:required {
+                border: 1px solid black;
+                /* background-color: #ccc; */
+            }
+
+            input:optional {
+                border: 1px solid silver;
+            }
+
+            /* Styling enabled and disabled inputs, and read-only and read-write */
+            input[type="text"]:disabled {
+                background-color: #eee;
+                border: 1px solid #ccc;
+            }
+            .disabled-label {
+                color: #aaa;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>UI pseudo-classes</h1>
+        <h2>Styling inputs based on whether they are required or not</h2>
+
+        <form>
+            <p>Required fields are labelled with "required".</p>
+            <fieldset>
+                <legend>Feedback form</legend>
+                <div>
+                    <label for="fname">First name: </label>
+                    <input id="fname" name="fname" type="text" required />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="lname">Last name: </label>
+                    <input id="lname" name="lname" type="text" required />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="email"
+                        >Email address (include if you want a response):
+                    </label>
+                    <input id="email" name="email" type="email" />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="age">Age (must be 12+): </label>
+                    <input
+                        id="age"
+                        name="age"
+                        type="number"
+                        min="12"
+                        max="120"
+                        required
+                    />
+                    <span></span>
+                </div>
+
+                <div><button>Submit</button></div>
+            </fieldset>
+        </form>
+        <h2>
+            Styling enabled and disabled inputs, and read-only and read-write
+        </h2>
+        <form>
+            <fieldset id="shipping">
+                <legend>Shipping address</legend>
+                <div>
+                    <label for="name1">Name: </label>
+                    <input id="name1" name="name1" type="text" required />
+                </div>
+                <div>
+                    <label for="address1">Address: </label>
+                    <input id="address1" name="address1" type="text" required />
+                </div>
+                <div>
+                    <label for="pcode1">Zip/postal code: </label>
+                    <input id="pcode1" name="pcode1" type="text" required />
+                </div>
+            </fieldset>
+            <fieldset id="billing">
+                <legend>Billing address</legend>
+                <div>
+                    <label for="billing-checkbox"
+                        >Same as shipping address:</label
+                    >
+                    <input type="checkbox" id="billing-checkbox" checked />
+                </div>
+                <div>
+                    <label for="name" class="billing-label disabled-label"
+                        >Name:
+                    </label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        disabled
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="address2" class="billing-label disabled-label"
+                        >Address:
+                    </label>
+                    <input
+                        id="address2"
+                        name="address2"
+                        type="text"
+                        disabled
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="pcode2" class="billing-label disabled-label"
+                        >Zip/postal code:
+                    </label>
+                    <input
+                        id="pcode2"
+                        name="pcode2"
+                        type="text"
+                        disabled
+                        required
+                    />
+                </div>
+            </fieldset>
+
+            <div><button>Submit</button></div>
+            <script>
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    function () {
+                        document
+                            .getElementById("billing-checkbox")
+                            .addEventListener("change", toggleBilling)
+                    },
+                    false
+                )
+
+                function toggleBilling() {
+                    let billingItems = document.querySelectorAll(
+                        '#billing input[type="text"]'
+                    )
+
+                    let billingLabels =
+                        document.querySelectorAll(".billing-label")
+
+                    for (let i = 0; i < billingItems.length; i++) {
+                        billingItems[i].disabled = !billingItems[i].disabled
+
+                        if (
+                            billingLabels[i].getAttribute("class") ===
+                            "billing-label disabled-label"
+                        ) {
+                            billingLabels[i].setAttribute(
+                                "class",
+                                "billing-label"
+                            )
+                        } else {
+                            billingLabels[i].setAttribute(
+                                "class",
+                                "billing-label disabled-label"
+                            )
+                        }
+                    }
+                }
+            </script>
+        </form>
+    </body>
+</html>

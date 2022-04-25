@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Client Side form validation</title>
+        <style>
+            input:invalid {
+                border: 2px dashed red;
+            }
+
+            input:invalid:required {
+                background-image: linear-gradient(to right, pink, lightgreen);
+            }
+
+            input:valid {
+                border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Client Side form validation</h1>
+        <h2>Built-in form validation examples</h2>
+        <form>
+            <label for="choose"
+                >Would you prefer a banana or a cherry? (required)</label
+            >
+            <input
+                type="text"
+                id="choose"
+                name="i_like"
+                required
+                pattern="[Bb]anana|[Cc]herry"
+            />
+            <button>Submit</button>
+        </form>
+    </body>
+</html>

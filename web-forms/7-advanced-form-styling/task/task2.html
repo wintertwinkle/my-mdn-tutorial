@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Advanced styling: Task 2</title>
+        <style>
+            body {
+                background-color: #fff;
+                color: #333;
+                font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+                padding: 1em;
+                margin: 0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+
+            button,
+            input,
+            select {
+                font-family: inherit;
+                font-size: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            input[type="radio"] {
+                position: relative;
+                -webkit-appearance: none;
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border: 2px solid #ccc;
+                border-radius: 50%;
+                vertical-align: text-bottom;
+            }
+
+            input[type="radio"]::after {
+                position: absolute;
+                content: "";
+                background-color: red;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                transform-origin: center;
+                transform: translate(2px, 2px) scale(0);
+                transition: transform 0.3s ease;
+            }
+
+            input[type="radio"]:checked::after {
+                transform: translate(2px, 2px) scale(1);
+                transition: transform 0.3s ease;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <fieldset>
+                <legend>Who is your favorite pony?</legend>
+                <ul>
+                    <li>
+                        <label for="pinkie">Pinkie Pie</label>
+                        <input
+                            type="radio"
+                            id="pinkie"
+                            name="pony"
+                            value="pinkie"
+                        />
+                    </li>
+                    <li>
+                        <label for="rainbow">Rainbow Dash</label>
+                        <input
+                            type="radio"
+                            id="rainbow"
+                            name="pony"
+                            value="rainbow"
+                        />
+                    </li>
+                    <li>
+                        <label for="twilight">Twilight Sparkle</label>
+                        <input
+                            type="radio"
+                            id="twilight"
+                            name="pony"
+                            value="twilight"
+                        />
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </body>
+</html>
