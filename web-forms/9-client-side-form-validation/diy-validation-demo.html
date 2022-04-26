@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                font: 1em sans-serif;
+                width: 200px;
+                padding: 0;
+                margin: 0 auto;
+            }
+
+            form {
+                max-width: 200px;
+            }
+
+            p * {
+                display: block;
+            }
+
+            input.mail {
+                -webkit-appearance: none;
+
+                width: 100%;
+                border: 1px solid #333;
+                margin: 0;
+
+                font-family: inherit;
+                font-size: 90%;
+
+                box-sizing: border-box;
+            }
+
+            /* This is our style for the invalid fields */
+            input.invalid {
+                border-color: #900;
+                background-color: #fdd;
+            }
+
+            input:focus.invalid {
+                outline: none;
+            }
+
+            /* This is the style of our error messages */
+            .error {
+                width: 100%;
+                padding: 0;
+
+                font-size: 80%;
+                color: white;
+                background-color: #900;
+                border-radius: 0 0 5px 5px;
+                box-sizing: border-box;
+            }
+
+            .error.active {
+                padding: 0.3em;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <p>
+                <label for="mail">
+                    <span>Please enter an email address:</span>
+                    <input type="text" id="mail" name="mail" />
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </p>
+            <!-- Some legacy browsers need to have the `type` attribute
+             explicitly set to `submit` on the `button`element -->
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            const form = document.getElementsByTagName("form")[0]
+            const email = document.getElementById("mail")
+            const error = document.querySelector(".error")
+
+            const emailRegExp =
+                /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
+            window.addEventListener("load", () => {
+                const test =
+                    email.value.length === 0 || emailRegExp.test(email.value)
+
+                email.className = test ? "valid" : "invalid"
+            })
+            email.addEventListener("input", () => {
+                const test =
+                    email.value.length === 0 || emailRegExp.test(email.value)
+                if (test) {
+                    email.className = "valid"
+                    error.textContent = ""
+                    error.className = "error"
+                } else {
+                    email.className = "invalid"
+                }
+            })
+            form.addEventListener("submit", () => {
+                const test =
+                    email.value.length === 0 || emailRegExp.test(email.value)
+
+                if (!test) {
+                    email.className = "invalid"
+                    error.textContent = "I expect an e-mail, darling!"
+                    error.className = "error active"
+
+                    // Some legacy browsers do not support the event.preventDefault() method
+                    return false
+                } else {
+                    email.className = "valid"
+                    error.textContent = ""
+                    error.className = "error"
+                }
+            })
+        </script>
+    </body>
+</html>
