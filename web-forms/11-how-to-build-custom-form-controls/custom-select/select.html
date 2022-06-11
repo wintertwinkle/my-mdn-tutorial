@@ -9,17 +9,18 @@
     </head>
     <body class="no-widget">
         <div class="container">
-            <div class="select" tabindex="0">
+            <div class="select" role="listbox">
                 <span class="value">Cherry</span>
 
-                <ul class="optList">
-                    <li class="option">Cherry</li>
-                    <li class="option">Lemon</li>
-                    <li class="option">Banana</li>
-                    <li class="option">Strawberry</li>
-                    <li class="option">Apple</li>
+                <ul class="optList hidden">
+                    <li role="option" class="option">Cherry</li>
+                    <li role="option" class="option">Lemon</li>
+                    <li role="option" class="option">Banana</li>
+                    <li role="option" class="option">Strawberry</li>
+                    <li role="option" class="option">Apple</li>
                 </ul>
             </div>
+            <!-- fallback -->
             <select name="myFruit">
                 <option>Cherry</option>
                 <option>Lemon</option>
