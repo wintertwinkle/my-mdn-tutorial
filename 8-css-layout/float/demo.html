@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Float Demo</title>
+        <style>
+            .demo {
+                width: 960px;
+                margin: 0 auto;
+                box-sizing: border-box;
+                background-color: beige;
+            }
+            .a {
+                float: left;
+                width: 32%;
+                margin-left: 2%;
+                margin-bottom: 1%;
+                background-color: aqua;
+                border-radius: 3px;
+            }
+            .two {
+                height: 209.6px;
+            }
+            .one {
+                height: 100px;
+            }
+            .a:nth-child(1) {
+                margin-left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo">
+            <div class="a two">A</div>
+            <div class="a one">B</div>
+            <div class="a one">C</div>
+            <div class="a one">D</div>
+            <div class="a one">E</div>
+        </div>
+    </body>
+</html>
